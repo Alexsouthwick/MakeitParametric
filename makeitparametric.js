@@ -3,5 +3,5 @@ function getParameterDefinitions(){
 }
 
 function main(params) {
-    return rectangle();
+    return rectangle([1,2,3]);
 }
