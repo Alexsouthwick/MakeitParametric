@@ -2,7 +2,7 @@ function getParameterDefinitions(){
 return [
     {name: 'width', type: 'float', initial: 10, caption: "Curcumference in cm:"},
     {name: 'height', type: 'float', initial: 2, caption: "Height in cm:"},
-    {name: 'number_design', type: 'float', initial: 4, caption: "Number of Design"},
+    {name: 'number_design', type: 'float', initial: 4, caption: "Number of Designs:"},
     {name: 'height_design', type: 'float', initial: 0.2, caption: "Size of Design:"},
     ]; 
 }
@@ -22,14 +22,16 @@ function main(params) {
     var center_circle= circle(params.height_design/3).translate([.95, 1.6]);
    
     var design_block= union(oval1, oval2, oval3, oval4, center_circle);
+    // var pattern= design_block.translate([0,1]);
 
 
 
-    for (i = 0; i<params.number_design; i++){
-        design.push();
+    for (i = 1; i<params.number_design; i++){
+        design.push(design_block.translate([0, params.width/i/2]));
 
     }
-    var bracelet= square([params.height, params.width]).subtract(union(hole1,hole2, design_block));
+
+    var bracelet= square([params.height, params.width]).subtract(union(hole1,hole2, design));
 
     
     return bracelet;
