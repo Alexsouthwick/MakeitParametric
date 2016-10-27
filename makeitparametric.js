@@ -6,7 +6,8 @@ return [
     {name: 'height', type: 'float', initial: 2, caption: "Height in cm:"},
     {name: 'number_rows', type: 'float', initial: 1, caption: "Number of Rows of Designs:"},
     {name: 'size_of_circle', type: 'float', initial: 0.07, caption: "Size of Center Circle:"},
-    {name: 'size_of_holes', type: 'float', initial: 0.25, caption: "Size of String Holes:"}
+    {name: 'size_of_holes', type: 'float', initial: 0.25, caption: "Size of String Holes:"},
+    {name: 'thickness', type: 'float', initial: 0.3, caption: "Thickness of Ovals:"}
     ]; 
 
 }
@@ -30,10 +31,10 @@ function main(params) {
     
 
 //makes the ovals and circle that make up the design
-    var oval1= circle(size).scale([0.3, 0.9]).rotateZ(45).translate([params.height/2+0.4,1.25]);
-    var oval2= circle(size).scale([0.3, 0.9]).rotateZ(45+90).translate([params.height/2+0.5,2]);
-    var oval3= circle(size).scale([0.3, 0.9]).rotateZ(135+90).translate([params.height/2-0.35,2.1]);
-    var oval4= circle(size).scale([0.3, 0.9]).rotateZ(135+180).translate([params.height/2-0.43,1.3]);
+    var oval1= circle(size).scale([params.thickness, 0.9]).rotateZ(45).translate([params.height/2+0.4,1.25]);
+    var oval2= circle(size).scale([params.thickness, 0.9]).rotateZ(45+90).translate([params.height/2+0.5,2]);
+    var oval3= circle(size).scale([params.thickness, 0.9]).rotateZ(135+90).translate([params.height/2-0.35,2.1]);
+    var oval4= circle(size).scale([params.thickness, 0.9]).rotateZ(135+180).translate([params.height/2-0.43,1.3]);
     var center_circle= circle(params.size_of_circle).translate([params.height/2-0.05, 1.6]);
    
    //makes a variable for the entire design
